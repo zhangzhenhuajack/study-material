@@ -11,13 +11,13 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 
 @Configuration
 public class RouterConfig {
-    @Autowired
-    private TimeHandler timeHandler;
+	@Autowired
+	private TimeHandler timeHandler;
 
-    @Bean
-    public RouterFunction<ServerResponse> timerRouter() {
-        return route(GET("/time"), req -> timeHandler.getTime(req))
-                .andRoute(GET("/date"), timeHandler::getDate)  // 这种方式相对于上一行更加简洁
-                .andRoute(GET("/times"), timeHandler::sendTimePerSec);  // 增加这一行
-    }
+	@Bean
+	public RouterFunction<ServerResponse> timerRouter() {
+
+		return route(GET("/time"), req -> timeHandler.getTime(req)).andRoute(GET("/date"), timeHandler::getDate)  // 这种方式相对于上一行更加简洁
+				.andRoute(GET("/times"), timeHandler::sendTimePerSec);  // 增加这一行
+	}
 }
