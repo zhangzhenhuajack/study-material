@@ -4,3 +4,5 @@ ssh -L [收听接口:]收听端口:目标主机:目标端口 username@hostname �
 `/usr/bin/ssh -g -N -o UserKnownHostsFile /dev/null -o StrictHostKeyChecking no -o ServerAliveInterval 30 -o ServerAliveCountMax 3 -L 0.0.0.0:3306:192.168.50.199:3306 172.30.253.219 -p 22 -l tunnel -i /etc/secret-volume/ssh-privatekey`
 #### 2. 利用paste 拼接列数据
 `paste <(kubectl get node --context prod -o wide) <(kubectl top node --context prod)`
+#### 3. apk 源 用 ali的
+`sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories`
