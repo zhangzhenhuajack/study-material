@@ -13,3 +13,12 @@
 `kubectl --kubeconfig ~/.kube/prod_ali_config get hpa --all-namespaces  --sort-by=.status.currentCPUUtilizationPercentage`
 #### 7. 查看 对应 deployment的 cpu 内存 
 `kubectl get deployment --all-namespaces --context prod |grep -v 0/0 |grep -v kube-system |awk '{print "get deployment "$2 " -n "$1}' | xargs -n 5  kubectl --context prod -o jsonpath='{.metadata.name}{"\t"}{.spec.template.spec.containers[0].resources.requests.cpu}{"\t"}{.spec.template.spec.containers[0].resources.requests.memory}{"\t"}{.status.availableReplicas}{"\n"}' `
+#### 8. 查看node的情况
+`paste <(kubectl get node --context prod -o wide) <(kubectl top node --context prod)`
+#### 9. 禁止pod调度到node上
+`kubectl crodon node ip-172-31-48-151.cn-north-1.compute.internal --context prod`
+#### 10. node排水
+`kube_prod drain ip-172-31-51-41.cn-north-1.compute.internal --ignore-daemonsets --delete-local-data`
+#### 11. 删除node
+`kubectl delete node ip-172-31-51-41.cn-north-1.compute.internal`
+
