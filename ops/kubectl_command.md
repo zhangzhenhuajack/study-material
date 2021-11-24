@@ -21,4 +21,5 @@
 `kube_prod drain ip-172-31-51-41.cn-north-1.compute.internal --ignore-daemonsets --delete-local-data`
 #### 11. 删除node
 `kubectl delete node ip-172-31-51-41.cn-north-1.compute.internal`
-
+#### 12. cp文件到本地
+`kubectl cp aoc-admin-beta-ali-aoc-admin-7f565f467f-vcp8k:/Command_Line_Tools_for_Xcode_12.2.dmg ./Command_Line_Tools_for_Xcode_12.2.dmg -n aoc-admin`
