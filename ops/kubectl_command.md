@@ -26,3 +26,5 @@
 #### 13. 去掉master的污点，方便node节点上的资源扩容到master上，极端情况节省node资源；以及恢复master的污点
 `kubectl taint node ip-172-31-41-213.cn-north-1.compute.internal  node-role.kubernetes.io/master-`
 `kubectl taint node ip-172-31-41-213.cn-north-1.compute.internal  node-role.kubernetes.io/master:NoSchedule`
+#### 14. 修改HPA的最小值
+`kubectl -n alo7-proxy-nginx  patch hpa nginx-beta-ali-nginx   --patch '{"spec":{"minReplicas":1}}'`
