@@ -28,3 +28,5 @@
 `kubectl taint node ip-172-31-41-213.cn-north-1.compute.internal  node-role.kubernetes.io/master:NoSchedule`
 #### 14. 修改HPA的最小值
 `kubectl -n alo7-proxy-nginx  patch hpa nginx-beta-ali-nginx   --patch '{"spec":{"minReplicas":1}}'`
+#### 15. helm还原发布历史
+`~/company/www/helm/helm2.9/helm rollback elasticsearch 6 --tiller-namespace picturebook-parent`
