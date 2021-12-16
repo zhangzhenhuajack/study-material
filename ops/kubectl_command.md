@@ -30,3 +30,5 @@
 `kubectl -n alo7-proxy-nginx  patch hpa nginx-beta-ali-nginx   --patch '{"spec":{"minReplicas":1}}'`
 #### 15. helm还原发布历史
 `~/company/www/helm/helm2.9/helm rollback elasticsearch 6 --tiller-namespace picturebook-parent`
+#### 16. 给namespace添加label，例如添加ECI支持，动态容器扩容
+` kubectl label namespace aoc-aggregator alibabacloud.com/eci=true`
