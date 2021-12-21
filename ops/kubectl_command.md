@@ -26,8 +26,9 @@
 #### 13. 去掉master的污点，方便node节点上的资源扩容到master上，极端情况节省node资源；以及恢复master的污点
 `kubectl taint node ip-172-31-41-213.cn-north-1.compute.internal  node-role.kubernetes.io/master-`
 `kubectl taint node ip-172-31-41-213.cn-north-1.compute.internal  node-role.kubernetes.io/master:NoSchedule`
-#### 14. 修改HPA的最小值
+#### 14. 修改HPA的最小值、最大值
 `kubectl -n alo7-proxy-nginx  patch hpa nginx-beta-ali-nginx   --patch '{"spec":{"minReplicas":1}}'`
+` kubectl patch hpa sentry-web  -p '{"spec": {"minReplicas": 0,"maxReplicas":0}}' --context prod -n sentry`
 #### 15. helm还原发布历史
 `~/company/www/helm/helm2.9/helm rollback elasticsearch 6 --tiller-namespace picturebook-parent`
 #### 16. 给namespace添加label，例如添加ECI支持，动态容器扩容
