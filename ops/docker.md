@@ -27,9 +27,9 @@
 `docker run -it --rm aliyun:2.3 oss sync help`
 #### 运行一个镜像，并且推出的时候，同时stop容器，覆盖Entrypoint，注意entrypoint的参数顺序
 `docker run  -it --entrypoint sh --rm aliyun:latest`
-#### 运行一个镜像，挂载一个本地目录进入到容器里面
+#### 运行一个镜像，--mount 挂载一个本地目录进入到容器里面
 `docker run --mount type=bind,source=/Users/jack/abc,target=/mnt/data -it --entrypoint sh --rm aliyun:latest`
-#### 根据指定的dockerfile 编译一个指定的tag名字
+#### -f 根据指定的dockerfile 编译一个指定 -t 的tag名字
 `docker build -f Dockerfile-aliyun -t  registry-mirrors.aliyun.com/ops/aliyun:1.0.0 .`
 #### 生成镜像的时候给镜像传递参数，给ARG使用
 `docker build -f Dockerfile-aliyun -t registry-mirrors.aliyun.com/ops/aliyun:1.0.0 . --build-arg AccessKeyId=AK --build-arg AccessKeyId=xxxx AccessKeySecret=yyyyyy`

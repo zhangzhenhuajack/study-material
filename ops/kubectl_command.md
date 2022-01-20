@@ -33,3 +33,5 @@
 `~/company/www/helm/helm2.9/helm rollback elasticsearch 6 --tiller-namespace picturebook-parent`
 #### 16. 给namespace添加label，例如添加ECI支持，动态容器扩容
 ` kubectl label namespace aoc-aggregator alibabacloud.com/eci=true`
+#### 17. 通过set命令升级镜像的版本号
+`kubectl set image deployments/tiller-deploy tiller=registry-vpc.cn-beijing.aliyuncs.com/alo7/tiller:v2.16.3 -n kube-system`
