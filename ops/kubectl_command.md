@@ -35,3 +35,7 @@
 ` kubectl label namespace aoc-aggregator alibabacloud.com/eci=true`
 #### 17. 通过set命令升级镜像的版本号
 `kubectl set image deployments/tiller-deploy tiller=registry-vpc.cn-beijing.aliyuncs.com/alo7/tiller:v2.16.3 -n kube-system`
+#### 18. Show all Failed/Evicted Pods
+`kubectl get pod --all-namespaces --field-selector=status.phase==Failed`
+#### 19. Delete all Failed/Evicted Pods
+`kubectl delete pod --all-namespaces --field-selector=status.phase==Failed`
