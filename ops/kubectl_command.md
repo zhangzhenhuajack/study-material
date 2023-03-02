@@ -39,3 +39,12 @@
 `kubectl get pod --all-namespaces --field-selector=status.phase==Failed`
 #### 19. Delete all Failed/Evicted Pods
 `kubectl delete pod --all-namespaces --field-selector=status.phase==Failed`
+#### 20. 给node 添加污点、删除污点
+`kubectl taint nodes mixbio-k8s-worker-3 gwas=:NoSchedule`
+`kubectl taint nodes mixbio-k8s-worker-3 gwas-`
+#### 21. 给node添加 标签、删除标签
+`kubectl label node mixbio-k8s-worker-3 gwas=true`
+`kubectl label node mixbio-k8s-worker-3 gwas-`
+
+
+
